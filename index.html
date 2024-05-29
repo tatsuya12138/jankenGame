@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>じゃんけんゲーム</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contents">
+    <div>
+      <h1>じゃんけんゲーム</h1>
+    </div>
+    <div class="select">
+      <img src="./img/janken_gu.png" alt="グー">
+      <button type="button" onclick="playGame(0)">グー</button>
+    </div>
+
+    <div class="select">
+      <img src="./img/janken_choki.png" alt="チョキ">
+      <button type="button" onclick="playGame(1)">チョキ</button>
+    </div>
+
+    <div class="select">
+      <img src="./img/janken_pa.png" alt="パー">
+      <button type="button" onclick="playGame(2)">パー</button>
+    </div>
+      
+      <p id="result"></p>
+
+    </div>
+  </div>
+  <script>
+    function playGame(userChoice) {
+      const playChoices = ["グー", "チョキ", "パー"];     //利用可能な選択肢を配列として定義
+      const comChoices = Math.floor(Math.random() * 3);   //コンピュータの選択をランダムに決定(0,1,2の範囲で小数点以下切り捨て)
+
+      //初期化とテンプレートリテラルを用いて変数resultMessageへ代入
+      let resultMessage = `プレイヤーの手：${playChoices[userChoice]}<br>コンピュータの手：${playChoices[comChoices]}<br>`;
+
+      //プレイヤーとコンピュータの手を比べて判定
+      if (userChoice === comChoices) {                    
+        resultMessage += "<br>引き分けです！";    //変数resultMessageに文字列"引き分けです！"を追加
+      } else if ((userChoice === 0 && comChoices === 1) || (userChoice === 1 && comChoices === 2) || (userChoice === 2 && comChoices === 0)) {
+        resultMessage += "<br>あなたの勝ちです！おめでとうございます！";
+      } else {
+        resultMessage += "<br>あなたの負けです！残念！";
+      }
+
+      //結果をHTMLに表示
+      document.getElementById("result").innerHTML = resultMessage
+    }
+  </script>
+</body>
+</html>

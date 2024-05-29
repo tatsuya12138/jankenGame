@@ -1,0 +1,31 @@
+.contents  {
+  text-align: center;
+}
+
+.contents h1 {
+  margin-top: 20px;
+  font-size: 40px;
+}
+
+.select {
+  display: inline-block;  /*.select要素は横に並べる */
+}
+
+.select img {
+  display: block;         /* 画像はブロック要素として表示 次の要素（ボタン）をその下に表示*/
+  margin: 30px auto;      /* auto：親要素(select)の中央に配置 */
+  width: 50%;
+}
+
+.select button {          /* 次の要素(ボタンの下)がないため、ここではblockを表示しない */       
+  margin: 0 auto;         /* auto：親要素(select)の中央に配置 */
+  font-size: 20px;
+}
+
+#result {                 /* #：id要素に適用 */
+  margin-top: 40px;
+  font-size: 20px;
+}
+
+
+
